@@ -4,7 +4,9 @@ Author: Peter Staker
 
 Deployed URL: coming soon...
 
-PR: [https://github.com/peterjast/caps/pull/1](https://github.com/peterjast/caps/pull/1)
+Lab 11 PR: [https://github.com/peterjast/caps/pull/1](https://github.com/peterjast/caps/pull/1)
+
+Lab 12 PR: [https://github.com/peterjast/caps/pull/2](https://github.com/peterjast/caps/pull/2)
 
 * tests coming soon...
 
@@ -13,8 +15,6 @@ PR: [https://github.com/peterjast/caps/pull/1](https://github.com/peterjast/caps
 ### .env requirements
 
 * PORT - Port Number
-
-* MONGODB_URI - DEV -> mongodb://localhost:27017/caps
 
 ### Dependencies
 
