@@ -1,15 +1,14 @@
 'use strict';
 
 require('dotenv').config();
-const port = process.env.PORT;
-require('util');
+
 const io = require('socket.io-client');
-const host = `http://localhost:${port}` || 'http://localhost:3000';
-const socket = io.connect(`${host}/caps`);
+const SERVER_URL = process.env.SERVER_URL || 'http://localhost:3000';
+const socket = io.connect(`${SERVER_URL}/caps`);
 
-socket.on('pickup', pickUpAndDeliver);
+socket.on('pickup', payload => pickupAndDeliver(payload));
 
-function pickUpAndDeliver(payload) {
+function pickupAndDeliver(payload) {
 
   setTimeout(() => {
     console.log(`DRIVER: picking up ${payload.orderId}`);
@@ -21,6 +20,4 @@ function pickUpAndDeliver(payload) {
     socket.emit('delivered', payload);
   }, 3000)
 
-}
-
-module.exports = { pickUpAndDeliver }
+};

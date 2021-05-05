@@ -18,6 +18,7 @@ caps.on('connection', (socket) => {
 
   console.log('client:', socket.id);
 
+
   socket.on('pickup', payload => {
     const event = { event: 'pickup', time: new Date(), payload: payload}
     console.log('EVENT', event);
