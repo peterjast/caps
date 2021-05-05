@@ -8,7 +8,7 @@ Lab 11 PR: [https://github.com/peterjast/caps/pull/1](https://github.com/peterja
 
 Lab 12 PR: [https://github.com/peterjast/caps/pull/2](https://github.com/peterjast/caps/pull/2)
 
-* tests coming soon...
+Lab 12 PR #2: [https://github.com/peterjast/caps/pull/3](https://github.com/peterjast/caps/pull/3)
 
 ## Setup
 

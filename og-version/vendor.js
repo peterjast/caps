@@ -1,7 +1,6 @@
 'use strict';
 
 require('dotenv').config();
-// const events = require('../events.js');
 const faker = require('faker');
 const port = process.env.PORT;
 const io = require('socket.io-client');
@@ -23,7 +22,6 @@ function thanks(payload) {
     console.log(`Thank you for delivering ${payload.orderId}`);    
   }
 }
-
 
 setInterval(() => {
   let order = {
