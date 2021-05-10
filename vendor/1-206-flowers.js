@@ -6,7 +6,7 @@ const faker = require('faker');
 const SERVER_URL = process.env.SERVER_URL || 'http://localhost:3000';
 const io = require('socket.io-client');
 const socket = io.connect(`${SERVER_URL}/caps`);
-const storeName = process.env.storeName;
+const storeName = '1-206-flowers'
 
 socket.emit('join', storeName);
 
