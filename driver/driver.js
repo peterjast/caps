@@ -6,18 +6,28 @@ const io = require('socket.io-client');
 const SERVER_URL = process.env.SERVER_URL || 'http://localhost:3000';
 const socket = io.connect(`${SERVER_URL}/caps`);
 
-socket.on('pickup', payload => pickupAndDeliver(payload));
+let driver = {clientID: 'driver', event: 'pickup'};
 
-function pickupAndDeliver(payload) {
+socket.emit('get-all', driver);
+
+socket.on('message', message => {
+  if(message.payload.event === 'pickup') {
+    pickupAndDeliver(message);
+  }
+});
+
+socket.on('pickup', pickupAndDeliver);
+
+function pickupAndDeliver(message) {
+  setTimeout(() => {
+    console.log(`DRIVER: picked up ${message.payload.payload.orderID}`);
+    socket.emit('in-transit', message.payload.payload);
+  }, 1500);
 
   setTimeout(() => {
-    console.log(`DRIVER: picking up ${payload.orderId}`);
-    socket.emit('in-transit', payload);
-  }, 1500)
-
-  setTimeout(() => {
-    console.log(`DRIVER: delivered ${payload.orderId}`);
-    socket.emit('delivered', payload);
-  }, 3000)
-
-};
+    console.log(`Driver: delivered up ${message.payload.payload.orderID}`);
+    socket.emit('delivered', message.payload.payload);
+  }, 3000);
+  
+  socket.emit('received', message.id);
+}
